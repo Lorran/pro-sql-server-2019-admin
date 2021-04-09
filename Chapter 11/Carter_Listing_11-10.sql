@@ -49,15 +49,25 @@ CREATE SYMMETRIC KEY CreditCardKey
     ENCRYPTION BY CERTIFICATE CreditCardCert;
 GO
 
+/*Minha autoria essa parte do script para fazer dar certo a parte 11-12*/
+
+Alter table SensitiveData
+add CreditCardNumber2 VARBINARY(8000)
+go
+
+Update SensitiveData
+set CreditCardNumber2 = CreditCardNumber
+go
+
+
 --Open Symmetric Key
 
 OPEN SYMMETRIC KEY CreditCardKey
    DECRYPTION BY CERTIFICATE CreditCardCert;
 
 --Encrypt the CreditCardNumber column
-
 UPDATE SensitiveData
 SET CreditCardNumber = ENCRYPTBYKEY(KEY_GUID('CreditCardKey'), CreditCardNumber);
 GO
 
-CLOSE SYMMETRIC KEY CreditCardKey --Close the key so it cannot be used again, unless reopened
+CLOSE SYMMETRIC KEY CreditCardKey --Close the key so it cannot be used again, unless reopened 

@@ -10,8 +10,7 @@ SELECT
         ,LastName
         ,CreditCardNumber AS [Credit Card Number Encrypted]
         ,CONVERT(VARCHAR(30), DECRYPTBYKEY(CreditCardNumber)) AS [Credit Card Number Decrypted]
-        ,CONVERT(VARCHAR(30), CreditCardNumber) 
-                                    AS [Credit Card Number Converted Without Decryption]
+        ,convert(varchar(30),DecryptByKey(CreditCardNumber2,1,HashBytes('SHA1', CONVERT(varbinary(8000), ID))))    AS [Credit Card Number Converted Without Decryption]
 FROM dbo.SensitiveData ;
 
 --Close the Key
