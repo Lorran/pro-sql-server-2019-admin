@@ -1,4 +1,6 @@
-CREATE DATABASE Chapter20;
+CREATE DATABASE Chapter20
+on (name=Chapter20,filename='H:\DATA-1\Chapter20.mdf')
+log on (name=Chapter20_log,filename='G:\LOG-1\Chapter20_log.ldf')
 go
 
 USE Chapter20

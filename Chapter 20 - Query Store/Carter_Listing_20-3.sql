@@ -1,3 +1,7 @@
+--Retain 30 days
+--Persist data to disk every 5 minutes
+--Capture wait statics for queries when 90% of a 2GB.
+
 ALTER DATABASE Chapter20
 SET QUERY_STORE = ON (
     OPERATION_MODE = READ_WRITE,
@@ -6,7 +10,4 @@ SET QUERY_STORE = ON (
     MAX_STORAGE_SIZE_MB= 2048,
     SIZE_BASED_CLEANUP_MODE = AUTO,
     WAIT_STATS_CAPTURE_MODE = ON
-
-
-
-)
+) 

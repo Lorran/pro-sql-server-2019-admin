@@ -1,0 +1,49 @@
+--Type of kind reports 
+View Regressed Queries: 
+View Overall Resource consumption: 
+View Queries with Forced Plans:
+View Queries With High Variation:
+Query Wait Statistics:
+View Tracked Queries:
+
+
+--Query Store Catalog Views Table 20-3
+Query_store_plan: Information about every query plan that is associate a query.
+Query_store_query: information about query and aggretgated runtime statistics.
+Query_store_wait_stats:
+Query_store_query_text:
+Query_Store_runtime_stats: Stores the runtime statistics for each query
+
+
+-- Query_store_wait_stats: Table 20-4
+-CPU:   SOS_SCHEDULER_YIELD
+-Worker Thread: THREADPOOL
+-Lock:  LCK_M_*
+-Latch: LATCH_*
+-Buffer Latch:  PAGELATCH_*
+-Buffer IO: PAGEIOLATCH_*
+-SQL CLR:   CLR*, SQLCLR*
+Mirroring:  DBMIRROR*
+-Transaction:   ACT*, DTC*, TRAN_MARKLATCH_*, MSQL_XACT_*, TRANSACTION_MUTEX, 
+-Idle:  SLEEP_*, LAZYWRITER_SLEEP, SQLTRACE_INCREMENTAL_FLUSH_SLEEP, SQLTRACE_WAIT_ENTRIES, FT_IFTS_SCHEDULER_IDLE_WAIT, XE_DISPATCHER_WAIT, REQUEST_FOR_DEADLOCK_SEARCH, LOGMGR_QUEUE, ONDEMAND_TASK_QUEUE, CHECKPOINT_QUEUE, XE_TIMER_EVENT
+-Preemptive: ..
+-Service Broker: ..
+-Transaction Log IO: ..
+-Network IO: ..
+-Parallelism: ..
+-Memory: ..
+-User Wait: ..
+-Tracing: .
+-Full Text Search: ..
+-Other IO: .
+-Replication: .
+-Log Rate Governor: .
+
+--Query Store Stored Procedures: Table 20-6
+- Sp_query_store_flush_db: Flushes Query Store data to disk.
+- Sp_query_store_force_plan: Force a query to use a specific plan.
+- Sp_query_store_unforce_plan: Removes a forced plan from a query.
+- Sp_query_store_reset_exec_stats: Clears the runtime statistics from the Query Store, for a specific query.
+- Sp_query_store_remove_plan: Removes a specific plan from the Query Store.
+- Sp_query_store_remove_query: Removes a query and all associated information from the Query Store.
+
